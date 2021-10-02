@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
 const Settings = {
-  COUNTRIES_QUANTITY: 3,
+  COUNTRIES_QUANTITY: 5,
 };
 
 ReactDOM.render(
