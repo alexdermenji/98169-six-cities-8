@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
 import Card from '../card/card';
 type MainProps = {
   countriesQty: number;
 };
 
 function Main({ countriesQty }: MainProps): JSX.Element {
-
+  console.log();
   return (
     <>
       <div style={{ display: 'none' }}>
@@ -138,11 +139,7 @@ function Main({ countriesQty }: MainProps): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <Card />
-                  <Card />
-                  <Card />
-                  <Card />
-                  <Card />
+                  {Array(countriesQty).fill(null).map(() => <Card key={Math.random()}/>)}
                 </div>
               </section>
               <div className="cities__right-section">
