@@ -1,5 +1,5 @@
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
-import Favourites from '../favourites/favourites';
+import Favorites from '../favorites/favorites';
 import Login from '../login/login';
 import Main from '../main/main';
 import Page404 from '../page-404/page404';
@@ -23,10 +23,11 @@ function App({ countriesQty }: AppProps): JSX.Element {
         </Route>
         <PrivateRoute
           exact
-          path={AppRoute.Favourites}
-          render={() => <Favourites />}
-          authorizationStatus={AuthorizationStatus.NoAuth}
-        />
+          path={AppRoute.Favorites}
+          authorizationStatus={AuthorizationStatus.Auth}
+        >
+          <Favorites/>
+        </PrivateRoute>
 
         <Route path={AppRoute.Room} exact>
           <Room/>
