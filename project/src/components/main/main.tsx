@@ -1,12 +1,15 @@
 /* eslint-disable no-console */
-import Card from '../card/card';
 import { Link } from 'react-router-dom';
+import {OfferType} from '../../types/offers-type';
+import PlacesList from '../places-list/placesList';
+
 type MainProps = {
-  countriesQty: number;
+
+  offers: OfferType[]
 };
 
-function Main({ countriesQty }: MainProps): JSX.Element {
-  console.log();
+function Main({  offers }: MainProps): JSX.Element {
+  console.log(offers);
   return (
     <>
       <div style={{ display: 'none' }}>
@@ -139,9 +142,7 @@ function Main({ countriesQty }: MainProps): JSX.Element {
                     </li>
                   </ul>
                 </form>
-                <div className="cities__places-list places__list tabs__content">
-                  {Array(countriesQty).fill(null).map(() => <Card key={Math.random()}/>)}
-                </div>
+                <PlacesList offers={offers}/>
               </section>
               <div className="cities__right-section">
                 <section className="cities__map map"></section>
