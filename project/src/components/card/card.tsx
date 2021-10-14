@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-import {OfferType } from '../../types/offers-type';
+import {ApartmentOffer } from '../../types/offers-type';
 type CardProps = {
-  data: OfferType
+  data: ApartmentOffer
 };
 
 function Card({data}:CardProps): JSX.Element {

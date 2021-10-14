@@ -1,19 +1,19 @@
 import Card from '../card/card';
-import {OfferType} from '../../types/offers-type';
-import { useState } from 'react';
+import {ApartmentOffer} from '../../types/offers-type';
+// import { useState } from 'react';
 
 
 type PlaceListProps = {
-    offers: OfferType[]
+    offers: ApartmentOffer[]
 }
 function PlacesList({offers}: PlaceListProps):JSX.Element{
-  console.log(offers);
 
-  const [activeCard, setActiveCard] = useState(null);
+
+  // const [activeCard, setActiveCard] = useState(null);
   return(
     <div className="cities__places-list places__list tabs__content">
 
-      {offers.map((offer, index)=> <Card data={offer} key={offer.id}/>)}
+      {offers.map((offer)=> <Card data={offer} key={offer.id}/>)}
     </div>
   );
 }

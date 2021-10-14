@@ -1,10 +1,11 @@
-export type AllOffersType = CityOffer[]
 
-export type CityOffer = [
-  string, OfferType[]
-]
+export type CityOffer = {
+  id: string,
+  title: string,
+  offers: ApartmentOffer[]
+}
 
-export type OfferType = {
+export type ApartmentOffer = {
   city: string,
   id: string,
   name: string,

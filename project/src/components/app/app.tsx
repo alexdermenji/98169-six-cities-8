@@ -8,20 +8,24 @@ import Room from '../room/room';
 import {AppRoute} from '../../const';
 import PrivateRoute from '../private-route/privateRoute';
 import {AuthorizationStatus} from '../../const';
-import { CityOffer } from '../../types/offers-type';
+import { ApartmentOffer, CityOffer } from '../../types/offers-type';
 
 type AppProps = {
   offers: CityOffer[]
 };
 
 function App({ offers }: AppProps): JSX.Element {
+  const cityOffers: ApartmentOffer[] = [];
+
+  offers.forEach((offer) => {
+    cityOffers.push(...offer.offers);
+  });
 
   return  (
     <BrowserRouter>
       <Switch>
         <Route path={AppRoute.Root} exact>
-          <Main offers={offers[0]}/>;
-          o
+          <Main offers={cityOffers}/>
         </Route>
         <Route path={AppRoute.Login} exact>
           <Login/>

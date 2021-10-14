@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-import {OfferType} from '../../types/offers-type';
+import {ApartmentOffer} from '../../types/offers-type';
 import PlacesList from '../places-list/placesList';
 
 type MainProps = {
 
-  offers: OfferType[]
+  offers: ApartmentOffer[]
 };
 
 function Main({  offers }: MainProps): JSX.Element {
-  console.log(offers);
+
   return (
     <>
       <div style={{ display: 'none' }}>
