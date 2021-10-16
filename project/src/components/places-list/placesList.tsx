@@ -12,7 +12,6 @@ function PlacesList({offers}: PlaceListProps):JSX.Element{
   // const [activeCard, setActiveCard] = useState(null);
   return(
     <div className="cities__places-list places__list tabs__content">
-
       {offers.map((offer)=> <Card data={offer} key={offer.id}/>)}
     </div>
   );

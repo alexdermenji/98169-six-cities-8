@@ -21,6 +21,7 @@ function App({ offers }: AppProps): JSX.Element {
     cityOffers.push(...offer.offers);
   });
 
+
   return  (
     <BrowserRouter>
       <Switch>
@@ -37,9 +38,8 @@ function App({ offers }: AppProps): JSX.Element {
         >
           <Favorites data={offers}/>
         </PrivateRoute>
-
         <Route path={AppRoute.Room} exact>
-          <Room/>
+          <Room offers= {cityOffers}/>
         </Route>
         <Route >
           <Page404/>

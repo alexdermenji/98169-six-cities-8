@@ -6,8 +6,8 @@ type CardProps = {
 };
 
 function Card({data}:CardProps): JSX.Element {
-  console.log(data);
   const {
+    id,
     name ,
     premium,
     type,
@@ -20,15 +20,15 @@ function Card({data}:CardProps): JSX.Element {
       {premium && <div className="place-card__mark"><span>Premium</span></div>}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <Link to='/offer/1'>
-          <img
-            className="place-card__image"
-            src="img/apartment-01.jpg"
-            width="260"
-            height="200"
-            alt="Place"
-          />
-        </Link>
+
+        <img
+          className="place-card__image"
+          src="img/apartment-01.jpg"
+          width="260"
+          height="200"
+          alt="Place"
+        />
+
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -50,7 +50,7 @@ function Card({data}:CardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to='/offer/1'>{name}</Link>
+          <Link to={`/offer/${id}`}>{name}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

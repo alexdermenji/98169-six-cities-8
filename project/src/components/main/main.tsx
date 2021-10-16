@@ -4,7 +4,6 @@ import {ApartmentOffer} from '../../types/offers-type';
 import PlacesList from '../places-list/placesList';
 
 type MainProps = {
-
   offers: ApartmentOffer[]
 };
 
