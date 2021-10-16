@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import Favorites from '../favorites/favorites';
 import Login from '../login/login';
@@ -7,16 +8,25 @@ import Room from '../room/room';
 import {AppRoute} from '../../const';
 import PrivateRoute from '../private-route/privateRoute';
 import {AuthorizationStatus} from '../../const';
+import { ApartmentOffer, CityOffer } from '../../types/offers-type';
 
 type AppProps = {
-  countriesQty: number;
+  offers: CityOffer[]
 };
-function App({ countriesQty }: AppProps): JSX.Element {
+
+function App({ offers }: AppProps): JSX.Element {
+  const cityOffers: ApartmentOffer[] = [];
+
+  offers.forEach((offer) => {
+    cityOffers.push(...offer.offers);
+  });
+
+
   return  (
     <BrowserRouter>
       <Switch>
         <Route path={AppRoute.Root} exact>
-          <Main countriesQty={countriesQty} />;
+          <Main offers={cityOffers}/>
         </Route>
         <Route path={AppRoute.Login} exact>
           <Login/>
@@ -26,11 +36,10 @@ function App({ countriesQty }: AppProps): JSX.Element {
           path={AppRoute.Favorites}
           authorizationStatus={AuthorizationStatus.Auth}
         >
-          <Favorites/>
+          <Favorites data={offers}/>
         </PrivateRoute>
-
         <Route path={AppRoute.Room} exact>
-          <Room/>
+          <Room offers= {cityOffers}/>
         </Route>
         <Route >
           <Page404/>

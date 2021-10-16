@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
+import { allOffers } from './mocks/offers';
 
-const Settings = {
-  COUNTRIES_QUANTITY: 5,
-};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App countriesQty={Settings.COUNTRIES_QUANTITY} />
+    <App  offers={allOffers} />
   </React.StrictMode>,
   document.getElementById('root'),
 );
