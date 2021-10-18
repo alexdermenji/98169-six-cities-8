@@ -1,13 +1,32 @@
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-import {ApartmentOffer} from '../../types/offers-type';
+import {ApartmentOffer, CityOffer, Points} from '../../types/offers-type';
 import PlacesList from '../places-list/placesList';
+import Map from '../map/map';
+
+import {useState} from 'react';
 
 type MainProps = {
   offers: ApartmentOffer[]
+  allOffers: CityOffer[]
 };
 
-function Main({  offers }: MainProps): JSX.Element {
+function Main({  offers, allOffers }: MainProps): JSX.Element {
+
+  const [selectedPoint, setSelectedPoint] = useState<Points | undefined>(
+    undefined,
+  );
+
+  const onListItemHover = (listItemName: string) => {
+
+    const currentPoint = points.find((point) => point.id === listItemName);
+
+    setSelectedPoint(currentPoint);
+  };
+
+  const points : Points[] = [];
+  offers.map((offer)=>points.push(offer.points));
+
 
   return (
     <>
@@ -141,10 +160,10 @@ function Main({  offers }: MainProps): JSX.Element {
                     </li>
                   </ul>
                 </form>
-                <PlacesList offers={offers}/>
+                <PlacesList onListItemHover={onListItemHover} offers={offers}/>
               </section>
-              <div className="cities__right-section">
-                <section className="cities__map map"></section>
+              <div className="cities__map cities__right-section">
+                <Map city={allOffers[0]} points={points} selectedPoint={selectedPoint}></Map>
               </div>
             </div>
           </div>

@@ -5,14 +5,14 @@ import {ApartmentOffer} from '../../types/offers-type';
 
 type PlaceListProps = {
     offers: ApartmentOffer[]
+    onListItemHover: (listItemName: string) => void;
 }
-function PlacesList({offers}: PlaceListProps):JSX.Element{
+function PlacesList({offers, onListItemHover}: PlaceListProps):JSX.Element{
 
 
-  // const [activeCard, setActiveCard] = useState(null);
   return(
     <div className="cities__places-list places__list tabs__content">
-      {offers.map((offer)=> <Card data={offer} key={offer.id}/>)}
+      {offers.map((offer)=> <Card onListItemHover={onListItemHover} data={offer} key={offer.id}/>)}
     </div>
   );
 }

@@ -1,18 +1,27 @@
 
 export type CityOffer = {
   id: string,
+  map: MapCoords,
   title: string,
   offers: ApartmentOffer[]
 }
+export type MapCoords = {
+  lat: number,
+  lng: number,
+  zoom: 10,
+}
+export type Points = {id: string, lng: number, lat: number}
+type Features = {code: string, title: string}
 
 export type ApartmentOffer = {
   city: string,
+  points: Points
   id: string,
   name: string,
   premium: boolean,
   type: string,
   rating: number,
-  features: string[],
+  features: Features[],
   price: number,
   inside: string[],
   host: string,
