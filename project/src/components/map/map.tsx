@@ -3,6 +3,8 @@ import {CityOffer, Points} from '../../types/offers-type';
 import {useRef, useEffect } from 'react';
 import useMap from '../../hooks/useMap';
 import leaflet, {Marker} from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 
 
@@ -48,8 +50,8 @@ function Map({city, points, selectedPoint}:MapProps):JSX.Element {
   }, [map, points,defaultCustomIcon, currentCustomIcon, selectedPoint]);
   return (
     <div ref={mapRef}
-      className=" map"
-      style={{height: '500px'}}
+      className="map"
+      style={{width:'100%', height: '500px'}}
     >
     </div>
   );

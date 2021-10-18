@@ -5,8 +5,8 @@ export const allOffers: CityOffer[] = [
     id: 'paris',
     title: 'paris',
     map: {
-      lat: 40.835292,
-      lng: -73.916236,
+      lng: 4.9041,
+      lat: 52.3676,
       zoom: 10,
     },
     offers: [
@@ -14,8 +14,8 @@ export const allOffers: CityOffer[] = [
         city: 'amsterdam',
         points: {
           id: 'id001',
-          lng: 52.3909553943508,
-          lat: 4.85309666406198,
+          lng: 4.85309666406198,
+          lat: 52.3909553943508,
         },
         id: 'id001',
         name: 'Beautiful & luxurious studio at great location',
@@ -32,8 +32,8 @@ export const allOffers: CityOffer[] = [
         city: 'amsterdam',
         points: {
           id: 'id002',
-          lng: 52.3909553943508,
-          lat: 4.929309666406198,
+          lng: 4.85309666406198,
+          lat: 52.369553943508,
         },
         id: 'id002',
         name: 'Beautiful & luxurious studio at great location',
@@ -61,8 +61,8 @@ export const allOffers: CityOffer[] = [
         city: 'amsterdam',
         points: {
           id: 'id003',
-          lng: 52.369553943508,
-          lat: 4.85309666406198,
+          lng: 4.929309666406198,
+          lat: 52.3909553943508,
         },
         id: 'id003',
         name: 'Beautiful & luxurious studio at great location',
@@ -79,8 +79,8 @@ export const allOffers: CityOffer[] = [
         city: 'amsterdam',
         points: {
           id: 'id004',
-          lng: 52.3809553943508,
-          lat: 4.939309666406198,
+          lng: 4.939309666406198,
+          lat: 52.3809553943508,
         },
         id: 'id004',
         name: 'Beautiful & luxurious studio at great location',
