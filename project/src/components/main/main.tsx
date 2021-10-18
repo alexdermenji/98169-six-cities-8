@@ -14,9 +14,8 @@ type MainProps = {
 
 function Main({  offers, allOffers }: MainProps): JSX.Element {
 
-  const [selectedPoint, setSelectedPoint] = useState<Points | undefined>(
-    undefined,
-  );
+
+  const [selectedPoint, setSelectedPoint] = useState<Points>();
 
   const onListItemHover = (listItemName: string) => {
 
@@ -26,7 +25,7 @@ function Main({  offers, allOffers }: MainProps): JSX.Element {
   };
 
   const points : Points[] = [];
-  offers.map((offer)=>points.push(offer.points));
+  offers.forEach((offer)=>points.push(offer.points));
 
 
   return (

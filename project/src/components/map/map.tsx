@@ -18,19 +18,19 @@ function Map({city, points, selectedPoint}:MapProps):JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city.map );
 
-  const defaultCustomIcon = leaflet.icon({
-    iconUrl: URL_MARKER_DEFAULT,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
-
-  const currentCustomIcon = leaflet.icon({
-    iconUrl: URL_MARKER_CURRENT,
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
 
   useEffect(() => {
+    const defaultCustomIcon = leaflet.icon({
+      iconUrl: URL_MARKER_DEFAULT,
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+    });
+
+    const currentCustomIcon = leaflet.icon({
+      iconUrl: URL_MARKER_CURRENT,
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+    });
     if (map) {
       points.forEach((point) => {
         const marker = new Marker({
@@ -47,7 +47,7 @@ function Map({city, points, selectedPoint}:MapProps):JSX.Element {
           .addTo(map);
       });
     }
-  }, [map, points,defaultCustomIcon, currentCustomIcon, selectedPoint]);
+  }, [map, points, selectedPoint]);
   return (
     <div ref={mapRef}
       className="map"

@@ -23,7 +23,7 @@ function Card({data, onListItemHover}:CardProps): JSX.Element {
 
   return (
 
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseOver={listItemHoverHandler}>
       {premium && <div className="place-card__mark"><span>Premium</span></div>}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -56,7 +56,7 @@ function Card({data, onListItemHover}:CardProps): JSX.Element {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name" onMouseOver={listItemHoverHandler}>
+        <h2 className="place-card__name" >
           <Link to={`/offer/${id}`}>{name}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
