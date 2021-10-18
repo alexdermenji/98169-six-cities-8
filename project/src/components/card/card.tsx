@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import {ApartmentOffer } from '../../types/offers-type';
 type CardProps = {
   data: ApartmentOffer
+  onListItemHover: (listItemName: string) => void;
 };
 
-function Card({data}:CardProps): JSX.Element {
+function Card({data, onListItemHover}:CardProps): JSX.Element {
   const {
     id,
     name ,
@@ -14,9 +15,15 @@ function Card({data}:CardProps): JSX.Element {
     price,
   } = data;
 
+
+  const listItemHoverHandler = () => {
+    onListItemHover(id);
+  };
+
+
   return (
 
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseOver={listItemHoverHandler}>
       {premium && <div className="place-card__mark"><span>Premium</span></div>}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -49,7 +56,7 @@ function Card({data}:CardProps): JSX.Element {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
+        <h2 className="place-card__name" >
           <Link to={`/offer/${id}`}>{name}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
