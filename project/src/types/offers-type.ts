@@ -5,6 +5,8 @@ export type CityOffer = {
   offers: ApartmentOffer[]
 }
 
+type Features = {code: string, title: string}
+
 export type ApartmentOffer = {
   city: string,
   id: string,
@@ -12,7 +14,7 @@ export type ApartmentOffer = {
   premium: boolean,
   type: string,
   rating: number,
-  features: string[],
+  features: Features[],
   price: number,
   inside: string[],
   host: string,

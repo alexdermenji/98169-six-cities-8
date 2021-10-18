@@ -95,15 +95,10 @@ function Room({offers}:RoomProps):JSX.Element {
                   <span className="property__rating-value rating__value">4.8</span>
                 </div>
                 <ul className="property__features">
-                  <li className="property__feature property__feature--entire">
-                    {room.features[0]}
-                  </li>
-                  <li className="property__feature property__feature--bedrooms">
-                    {room.features[1]}
-                  </li>
-                  <li className="property__feature property__feature--adults">
-                    {room.features[2]}
-                  </li>
+                  {room.features.map((item)=> (<li key={item.code} className={`property__feature property__feature--${item.code}`}>
+                    {item.title}
+                                               </li>))}
+
                 </ul>
                 <div className="property__price">
                   <b className="property__price-value">&euro;{room.price}</b>
