@@ -9,6 +9,7 @@ import {AppRoute} from '../../const';
 import PrivateRoute from '../private-route/privateRoute';
 import {AuthorizationStatus} from '../../const';
 import { ApartmentOffer, CityOffer } from '../../types/offers-type';
+import { allOffers } from '../../mocks/offers';
 
 type AppProps = {
   offers: CityOffer[]
@@ -39,7 +40,7 @@ function App({ offers }: AppProps): JSX.Element {
           <Favorites data={offers}/>
         </PrivateRoute>
         <Route path={AppRoute.Room} exact>
-          <Room offers= {cityOffers}/>
+          <Room offers= {cityOffers} allOffers={allOffers}/>
         </Route>
         <Route >
           <Page404/>

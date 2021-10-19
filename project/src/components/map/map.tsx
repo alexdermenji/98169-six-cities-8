@@ -11,9 +11,10 @@ import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 type MapProps = {
   city: CityOffer
   points: Points[]
-  selectedPoint: Points | undefined;
+  selectedPoint?: Points | undefined;
 };
 function Map({city, points, selectedPoint}:MapProps):JSX.Element {
+
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city.map );

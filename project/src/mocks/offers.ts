@@ -18,6 +18,13 @@ export const allOffers: CityOffer[] = [
           lat: 52.3909553943508,
         },
         id: 'id001',
+        reviews: [
+          {
+            name: 'Max',
+            rating: '80',
+            review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+            date: 'April 2019'},
+        ],
         name: 'Beautiful & luxurious studio at great location',
         premium: true,
         type: 'house',
@@ -36,6 +43,13 @@ export const allOffers: CityOffer[] = [
           lat: 52.369553943508,
         },
         id: 'id002',
+        reviews: [
+          {
+            name: 'Max',
+            rating: '70',
+            review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+            date: 'April 2019'},
+        ],
         name: 'Beautiful & luxurious studio at great location',
         premium: false,
         type: 'apartment',
@@ -65,6 +79,13 @@ export const allOffers: CityOffer[] = [
           lat: 52.3909553943508,
         },
         id: 'id003',
+        reviews: [
+          {
+            name: 'Max',
+            rating: '90',
+            review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+            date: 'April 2019'},
+        ],
         name: 'Beautiful & luxurious studio at great location',
         premium: true,
         type: 'house',
@@ -83,6 +104,13 @@ export const allOffers: CityOffer[] = [
           lat: 52.3809553943508,
         },
         id: 'id004',
+        reviews: [
+          {
+            name: 'Max',
+            rating: '50',
+            review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+            date: 'April 2019'},
+        ],
         name: 'Beautiful & luxurious studio at great location',
         premium: false,
         type: 'apartment',

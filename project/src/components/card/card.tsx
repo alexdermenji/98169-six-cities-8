@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {ApartmentOffer } from '../../types/offers-type';
 type CardProps = {
   data: ApartmentOffer
-  onListItemHover: (listItemName: string) => void;
+  onListItemHover?: (listItemName: string) => void;
 };
 
 function Card({data, onListItemHover}:CardProps): JSX.Element {
@@ -17,7 +17,7 @@ function Card({data, onListItemHover}:CardProps): JSX.Element {
 
 
   const listItemHoverHandler = () => {
-    onListItemHover(id);
+    onListItemHover && onListItemHover(id);
   };
 
 
