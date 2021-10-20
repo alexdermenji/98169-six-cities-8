@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 import {Link, useParams} from 'react-router-dom';
-
+import { useState } from 'react';
 import {ApartmentOffer} from '../../types/offers-type';
 import Map from '../map/map';
 import PlacesList from '../places-list/placesList';
@@ -17,6 +17,13 @@ type RoomProps = {
 function Room({offers, allOffers}:RoomProps):JSX.Element {
   const { id } = useParams<{id?: string}>();
   const [room] = offers.filter((offer)=>offer.id === id);
+
+  const [selectedPoint, setSelectedPoint] = useState<Points>();
+  const onListItemHover = (listItemId: string) => {
+    const currentPoint = points.find((point) => point.id === listItemId);
+    setSelectedPoint(currentPoint);
+  };
+
   const points : Points[] = [];
   offers.forEach((offer)=>points.push(offer.points));
 
@@ -101,7 +108,7 @@ function Room({offers, allOffers}:RoomProps):JSX.Element {
                     <span style={{width: '80%'}}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
-                  <span className="property__rating-value rating__value">4.8</span>
+                  <span className="property__rating-value rating__value">{room.rating}</span>
                 </div>
                 <ul className="property__features">
                   {room.features.map((item)=> (<li key={item.code} className={`property__feature property__feature--${item.code}`}>
@@ -146,14 +153,12 @@ function Room({offers, allOffers}:RoomProps):JSX.Element {
               <ReviewsList reviews={room.reviews} />
               </div>
             </div>
-            <section className="map">
-            <Map city={allOffers[0]} points={points} />
-            </section>
+            <Map selectedPoint={selectedPoint} city={allOffers[0]} points={points} />
           </section>
           <div className="container">
             <section className="near-places places">
               <h2 className="near-places__title">Other places in the neighbourhood</h2>
-              <PlacesList offers={offers} />
+              <PlacesList placesClass='near' onListItemHover={onListItemHover} offers={offers} />
             </section>
           </div>
         </main>

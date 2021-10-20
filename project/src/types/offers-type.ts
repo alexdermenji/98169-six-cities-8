@@ -14,6 +14,7 @@ export type Points = {id: string, lng: number, lat: number}
 type Features = {code: string, title: string}
 
 export type ReviewType = {
+  id: string,
   name: string,
   rating: string,
   review: string,

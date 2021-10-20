@@ -20,10 +20,29 @@ export const allOffers: CityOffer[] = [
         id: 'id001',
         reviews: [
           {
+            id: 'review01',
             name: 'Max',
             rating: '80',
+            review: 'Perfect location for exploring the city. The room was big enough for two travellers. Bed was super comfy, although the pillows could do with replacing (lumpy chopped foam filling) Nice touch having tea and coffee available in the kitchen for guests. ',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review02',
+            name: 'Alex',
+            rating: '70',
+            review: 'We had a great time at Marcus’ place. very convenient house equipped with everything you need. It’s at a great location, very easy to get around with bus stops, train station.',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review03',
+            name: 'Den',
+            rating: '50',
             review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-            date: 'April 2019'},
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review04',
+            name: 'John',
+            rating: '40',
+            review: 'Had a really great stay at Marcus home. Really convenient location for access to all of the tourist hotspots and a huge comfy bed! Would stay here again.',
+            date: new Date().toISOString().split('T')[0]},
         ],
         name: 'Beautiful & luxurious studio at great location',
         premium: true,
@@ -45,10 +64,17 @@ export const allOffers: CityOffer[] = [
         id: 'id002',
         reviews: [
           {
-            name: 'Max',
+            id: 'review02',
+            name: 'Alex',
             rating: '70',
+            review: 'We had a great time at Marcus’ place. very convenient house equipped with everything you need. It’s at a great location, very easy to get around with bus stops, train station.',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review03',
+            name: 'Den',
+            rating: '50',
             review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-            date: 'April 2019'},
+            date: new Date().toISOString().split('T')[0]},
         ],
         name: 'Beautiful & luxurious studio at great location',
         premium: false,
@@ -81,10 +107,23 @@ export const allOffers: CityOffer[] = [
         id: 'id003',
         reviews: [
           {
-            name: 'Max',
-            rating: '90',
+            id: 'review02',
+            name: 'Alex',
+            rating: '70',
+            review: 'We had a great time at Marcus’ place. very convenient house equipped with everything you need. It’s at a great location, very easy to get around with bus stops, train station.',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review03',
+            name: 'Den',
+            rating: '50',
             review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-            date: 'April 2019'},
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review04',
+            name: 'John',
+            rating: '40',
+            review: 'Had a really great stay at Marcus home. Really convenient location for access to all of the tourist hotspots and a huge comfy bed! Would stay here again.',
+            date: new Date().toISOString().split('T')[0]},
         ],
         name: 'Beautiful & luxurious studio at great location',
         premium: true,
@@ -106,10 +145,29 @@ export const allOffers: CityOffer[] = [
         id: 'id004',
         reviews: [
           {
+            id: 'review01',
             name: 'Max',
+            rating: '80',
+            review: 'Perfect location for exploring the city. The room was big enough for two travellers. Bed was super comfy, although the pillows could do with replacing (lumpy chopped foam filling) Nice touch having tea and coffee available in the kitchen for guests. ',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review02',
+            name: 'Alex',
+            rating: '70',
+            review: 'We had a great time at Marcus’ place. very convenient house equipped with everything you need. It’s at a great location, very easy to get around with bus stops, train station.',
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review03',
+            name: 'Den',
             rating: '50',
             review: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-            date: 'April 2019'},
+            date: new Date().toISOString().split('T')[0]},
+          {
+            id: 'review04',
+            name: 'John',
+            rating: '40',
+            review: 'Had a really great stay at Marcus home. Really convenient location for access to all of the tourist hotspots and a huge comfy bed! Would stay here again.',
+            date: new Date().toISOString().split('T')[0]},
         ],
         name: 'Beautiful & luxurious studio at great location',
         premium: false,
