@@ -13,10 +13,19 @@ export type MapCoords = {
 export type Points = {id: string, lng: number, lat: number}
 type Features = {code: string, title: string}
 
+export type ReviewType = {
+  id: string,
+  name: string,
+  rating: string,
+  review: string,
+  date: string,
+}
+
 export type ApartmentOffer = {
   city: string,
   points: Points
   id: string,
+  reviews: ReviewType[],
   name: string,
   premium: boolean,
   type: string,

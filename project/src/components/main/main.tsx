@@ -160,7 +160,7 @@ function Main({  offers, allOffers }: MainProps): JSX.Element {
                     </li>
                   </ul>
                 </form>
-                <PlacesList onListItemHover={onListItemHover} offers={offers}/>
+                <PlacesList placesClass='' onListItemHover={onListItemHover} offers={offers}/>
               </section>
               <div className="cities__right-section">
                 <Map city={allOffers[0]} points={points} selectedPoint={selectedPoint}></Map>
