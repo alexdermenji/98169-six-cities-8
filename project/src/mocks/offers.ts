@@ -2,8 +2,8 @@ import { CityOffer } from '../types/offers-type';
 
 export const allOffers: CityOffer[] = [
   {
-    id: 'paris',
-    title: 'paris',
+    id: 'Paris',
+    title: 'Paris',
     map: {
       lng: 4.9041,
       lat: 52.3676,
@@ -11,7 +11,7 @@ export const allOffers: CityOffer[] = [
     },
     offers: [
       {
-        city: 'amsterdam',
+        city: 'paris',
         points: {
           id: 'id001',
           lng: 4.85309666406198,
@@ -55,7 +55,7 @@ export const allOffers: CityOffer[] = [
         description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century. An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
       },
       {
-        city: 'amsterdam',
+        city: 'paris',
         points: {
           id: 'id002',
           lng: 4.85309666406198,
@@ -89,8 +89,8 @@ export const allOffers: CityOffer[] = [
     ],
   },
   {
-    id: 'amssterdam',
-    title: 'amsterdam',
+    id: 'Amsterdam',
+    title: 'Amsterdam',
     map: {
       lat: 40.835292,
       lng: -73.916236,
@@ -182,3 +182,5 @@ export const allOffers: CityOffer[] = [
     ],
   },
 ];
+
+

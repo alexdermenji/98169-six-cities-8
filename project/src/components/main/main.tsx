@@ -4,15 +4,22 @@ import {ApartmentOffer, CityOffer, Points} from '../../types/offers-type';
 import PlacesList from '../places-list/placesList';
 import Map from '../map/map';
 import 'leaflet/dist/leaflet.css';
-
+import { cities } from '../../mocks/cities';
 import {useState} from 'react';
+import CitiesList from '../cities-list/citiesList';
+import { useSelector } from 'react-redux';
+
 
 type MainProps = {
-  offers: ApartmentOffer[]
   allOffers: CityOffer[]
 };
 
-function Main({  offers, allOffers }: MainProps): JSX.Element {
+function Main({ allOffers }: MainProps): JSX.Element {
+
+  const offers = useSelector<{ offers: ApartmentOffer[]}>((state)=>state.offers);
+  const points : Points[] = [];
+
+  offers.forEach((offer)=>points.push(offer.points));
 
 
   const [selectedPoint, setSelectedPoint] = useState<Points>();
@@ -23,9 +30,6 @@ function Main({  offers, allOffers }: MainProps): JSX.Element {
 
     setSelectedPoint(currentPoint);
   };
-
-  const points : Points[] = [];
-  offers.forEach((offer)=>points.push(offer.points));
 
 
   return (
@@ -93,42 +97,7 @@ function Main({  offers, allOffers }: MainProps): JSX.Element {
 
         <main className="page__main page__main--index">
           <h1 className="visually-hidden">Cities</h1>
-          <div className="tabs">
-            <section className="locations container">
-              <ul className="locations__list tabs__list">
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item" to="/">
-                    <span>Paris</span>
-                  </Link>
-                </li>
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item" to="/">
-                    <span>Cologne</span>
-                  </Link>
-                </li>
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item" to="/">
-                    <span>Brussels</span>
-                  </Link>
-                </li>
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item tabs__item--active" to="/">
-                    <span>Amsterdam</span>
-                  </Link>
-                </li>
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item" to="/">
-                    <span>Hamburg</span>
-                  </Link>
-                </li>
-                <li className="locations__item">
-                  <Link className="locations__item-link tabs__item" to="/">
-                    <span>Dusseldorf</span>
-                  </Link>
-                </li>
-              </ul>
-            </section>
-          </div>
+          <CitiesList cities={cities}/>
           <div className="cities">
             <div className="cities__places-container container">
               <section className="cities__places places">

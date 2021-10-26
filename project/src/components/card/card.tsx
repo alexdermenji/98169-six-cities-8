@@ -16,7 +16,7 @@ function Card({data, onListItemHover, placesClass}:CardProps): JSX.Element {
     price,
   } = data;
 
-  console.log(placesClass);
+
   const listItemHoverHandler = () => {
     onListItemHover(id);
   };
