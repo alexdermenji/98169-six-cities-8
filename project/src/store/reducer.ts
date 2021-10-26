@@ -11,7 +11,7 @@ const initialState = {
 
 const reducer = (state: State = initialState, action: Actions): State => {
   switch (action.type) {
-    case ActionType.CityChange:
+    case ActionType.CityChange: {
       const [newOffers] = allOffers.filter((offer) => offer.title === action.payload);
       if (newOffers) {
         return {
@@ -26,6 +26,7 @@ const reducer = (state: State = initialState, action: Actions): State => {
         city: action.payload,
         offers: [],
       };}
+    }
 
 
     default:
