@@ -15,17 +15,14 @@ const reducer = (state: State = initialState, action: Actions): State => {
       const [newOffers] = allOffers.filter((offer) => offer.title === action.payload);
       if (newOffers) {
         return {
-          ...state,
           city: action.payload,
           offers: newOffers.offers,
         };
       }
-      else
-      {return {
-        ...state,
+      return {
         city: action.payload,
         offers: [],
-      };}
+      };
     }
 
 

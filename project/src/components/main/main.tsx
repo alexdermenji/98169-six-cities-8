@@ -17,7 +17,8 @@ type MainProps = {
 function Main({ allOffers }: MainProps): JSX.Element {
 
   const offers = useSelector<{ offers: ApartmentOffer[]}, ApartmentOffer[]>((state) => state.offers);
-
+  const activeCity = useSelector<{ city: string}, string>((state) => state.city);
+  const [activeOffer] = allOffers.filter((offer)=>offer.title===activeCity);
   const points : Points[] = [];
 
   offers.forEach((offer)=>points.push(offer.points));
@@ -103,7 +104,7 @@ function Main({ allOffers }: MainProps): JSX.Element {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in Amsterdam</b>
+                <b className="places__found">{offers.length} places to stay in {activeCity}</b>
                 <form className="places__sorting" action="#" method="get">
                   <span className="places__sorting-caption">Sort by</span>
                   <span className="places__sorting-type" tabIndex={0}>
@@ -133,7 +134,7 @@ function Main({ allOffers }: MainProps): JSX.Element {
                 <PlacesList placesClass='' onListItemHover={onListItemHover} offers={offers}/>
               </section>
               <div className="cities__right-section">
-                <Map city={allOffers[0]} points={points} selectedPoint={selectedPoint}></Map>
+                <Map city={activeOffer} points={points} selectedPoint={selectedPoint}></Map>
               </div>
             </div>
           </div>

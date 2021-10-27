@@ -13,8 +13,8 @@ type MapProps = {
   points: Points[]
   selectedPoint: Points | undefined;
 };
-function Map({city, points, selectedPoint}:MapProps):JSX.Element {
-
+function Map({ points, selectedPoint,city}:MapProps):JSX.Element {
+  console.log(points);
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city.map );
