@@ -14,7 +14,7 @@ type MapProps = {
   selectedPoint: Points | undefined;
 };
 function Map({ points, selectedPoint,city}:MapProps):JSX.Element {
-  console.log(points);
+
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city.map );
