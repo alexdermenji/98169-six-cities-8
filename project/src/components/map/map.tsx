@@ -2,7 +2,7 @@
 import {CityOffer, Points} from '../../types/offers-type';
 import {useRef, useEffect } from 'react';
 import useMap from '../../hooks/useMap';
-import leaflet, {Marker} from 'leaflet';
+import leaflet, {LayerGroup, Marker} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
@@ -13,7 +13,7 @@ type MapProps = {
   points: Points[]
   selectedPoint: Points | undefined;
 };
-function Map({city, points, selectedPoint}:MapProps):JSX.Element {
+function Map({ points, selectedPoint,city}:MapProps):JSX.Element {
 
 
   const mapRef = useRef(null);
@@ -32,6 +32,7 @@ function Map({city, points, selectedPoint}:MapProps):JSX.Element {
       iconSize: [40, 40],
       iconAnchor: [20, 40],
     });
+    const layer = new LayerGroup();
     if (map) {
       points.forEach((point) => {
         const marker = new Marker({
@@ -45,9 +46,14 @@ function Map({city, points, selectedPoint}:MapProps):JSX.Element {
               ? currentCustomIcon
               : defaultCustomIcon,
           )
-          .addTo(map);
+          .addTo(layer);
       });
+      layer.addTo(map);
     }
+
+    return ()=>{
+      layer.remove();
+    };
   }, [map, points, selectedPoint]);
   return (
     <div ref={mapRef}
