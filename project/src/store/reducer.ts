@@ -24,6 +24,12 @@ const reducer = (state: State = initialState, action: Actions): State => {
         offers: [],
       };
     }
+    case ActionType.SortOffers: {
+      return {
+        ...state,
+        offers: action.payload,
+      };
+    }
 
 
     default:

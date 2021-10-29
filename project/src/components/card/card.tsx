@@ -14,6 +14,7 @@ function Card({data, onListItemHover, placesClass}:CardProps): JSX.Element {
     premium,
     type,
     price,
+    rating,
   } = data;
 
 
@@ -50,6 +51,7 @@ function Card({data, onListItemHover, placesClass}:CardProps): JSX.Element {
           </button>
         </div>
         <div className="place-card__rating rating">
+          {rating}
           <div className="place-card__stars rating__stars">
             <span style={{ width: '80%' }}></span>
             <span className="visually-hidden">Rating</span>
