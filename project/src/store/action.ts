@@ -1,8 +1,8 @@
 import { ApartmentOffer } from '../types/offers-type';
 
 export enum ActionType {
-  CityChange = 'cityChange',
-  GetOffers = 'getOffers',
+  CityChange ='cityChange',
+  GetOffers ='getOffers',
   SortOffers='sortOffers',
 }
 
@@ -17,7 +17,7 @@ export type GetOffersAction = {
 };
 export type SortOffersAction = {
   type: ActionType.SortOffers;
-  payload: ApartmentOffer[]
+  payload: string
 };
 
 export type Actions = CityChangeAction | GetOffersAction | SortOffersAction
