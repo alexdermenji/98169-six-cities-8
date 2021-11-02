@@ -7,7 +7,9 @@ import 'leaflet/dist/leaflet.css';
 import { cities } from '../../mocks/cities';
 import {useState} from 'react';
 import CitiesList from '../cities-list/citiesList';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
+import SortOffers from '../sort-offers/sortOffers';
+import {State} from '../../types/redux-types';
 
 
 type MainProps = {
@@ -15,22 +17,46 @@ type MainProps = {
 };
 
 function Main({ allOffers }: MainProps): JSX.Element {
+  const { offers, sortType, city } = useSelector<State, State>((state) => ({
+    city: state.city,
+    offers: state.offers,
+    sortType: state.sortType,
+  }), shallowEqual);
 
-  const offers = useSelector<{ offers: ApartmentOffer[]}, ApartmentOffer[]>((state) => state.offers);
-  const activeCity = useSelector<{ city: string}, string>((state) => state.city);
-  const [activeOffer] = allOffers.filter((offer)=>offer.title===activeCity);
+
+  const [activeOffer] = allOffers.filter((offer)=>offer.title===city);
   const points : Points[] = [];
 
   offers.forEach((offer)=>points.push(offer.points));
 
-
   const [selectedPoint, setSelectedPoint] = useState<Points>();
 
   const onListItemHover = (listItemName: string) => {
-
     const currentPoint = points.find((point) => point.id === listItemName);
-
     setSelectedPoint(currentPoint);
+  };
+
+  const sortedOffers = (currentOffers: ApartmentOffer[], currentSortType: State['sortType']) => {
+    switch (currentSortType) {
+      case 'Price low to high':{
+        const filteredOffers = currentOffers.slice().sort((a,b)=>a.price-b.price);
+        return  filteredOffers;
+      }
+      case 'Price high to low': {
+        const filteredOffers=currentOffers.slice().sort((a,b)=>b.price-a.price);
+        return  filteredOffers;
+
+      }
+      case 'Rating' : {
+        const filteredOffers=currentOffers.slice().sort((a,b)=>b.rating-a.rating);
+        return  filteredOffers;
+      }
+      case 'Popular': {
+        return currentOffers.slice();
+      }
+      default :
+        return currentOffers.slice();
+    }
   };
 
 
@@ -104,34 +130,9 @@ function Main({ allOffers }: MainProps): JSX.Element {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{offers.length} places to stay in {activeCity}</b>
-                <form className="places__sorting" action="#" method="get">
-                  <span className="places__sorting-caption">Sort by</span>
-                  <span className="places__sorting-type" tabIndex={0}>
-                    Popular
-                    <svg className="places__sorting-arrow" width="7" height="4">
-                      <use xlinkHref="#icon-arrow-select"></use>
-                    </svg>
-                  </span>
-                  <ul className="places__options places__options--custom places__options--opened">
-                    <li
-                      className="places__option places__option--active"
-                      tabIndex={0}
-                    >
-                      Popular
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Price: low to high
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Price: high to low
-                    </li>
-                    <li className="places__option" tabIndex={0}>
-                      Top rated first
-                    </li>
-                  </ul>
-                </form>
-                <PlacesList placesClass='' onListItemHover={onListItemHover} offers={offers}/>
+                <b className="places__found">{offers.length} places to stay in {city}</b>
+                <SortOffers/>
+                <PlacesList placesClass='' onListItemHover={onListItemHover} offers={sortedOffers(offers, sortType)}/>
               </section>
               <div className="cities__right-section">
                 <Map city={activeOffer} points={points} selectedPoint={selectedPoint}></Map>

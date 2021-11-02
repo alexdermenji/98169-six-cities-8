@@ -6,6 +6,7 @@ import {allOffers} from '../mocks/offers';
 const initialState = {
   city: 'Paris',
   offers: allOffers[0].offers,
+  sortType: 'Popular' as const,
 };
 
 
@@ -15,13 +16,21 @@ const reducer = (state: State = initialState, action: Actions): State => {
       const [newOffers] = allOffers.filter((offer) => offer.title === action.payload);
       if (newOffers) {
         return {
+          ...state,
           city: action.payload,
           offers: newOffers.offers,
         };
       }
       return {
+        ...state,
         city: action.payload,
         offers: [],
+      };
+    }
+    case ActionType.SortOffers: {
+      return {
+        ...state,
+        sortType: action.payload,
       };
     }
 
