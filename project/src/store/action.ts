@@ -1,4 +1,5 @@
 import { ApartmentOffer } from '../types/offers-type';
+import { State } from '../types/redux-types';
 
 export enum ActionType {
   CityChange ='cityChange',
@@ -16,8 +17,8 @@ export type GetOffersAction = {
   payload: ApartmentOffer[]
 };
 export type SortOffersAction = {
-  type: ActionType.SortOffers;
-  payload: string
+  type: ActionType.SortOffers,
+  payload: State['sortType']
 };
 
 export type Actions = CityChangeAction | GetOffersAction | SortOffersAction

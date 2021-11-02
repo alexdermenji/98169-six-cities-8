@@ -6,7 +6,7 @@ import {allOffers} from '../mocks/offers';
 const initialState = {
   city: 'Paris',
   offers: allOffers[0].offers,
-  sortType: 'Popular',
+  sortType: 'Popular' as const,
 };
 
 

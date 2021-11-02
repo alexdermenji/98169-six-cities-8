@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { State } from '../../types/redux-types';
 import { sortTypes } from '../../mocks/sortTypes';
 import SortOption from '../sort-option/sortOption';
-import { ActionType } from '../../store/action';
-import { sortOffers } from '../../store/actionCreators';
+
+import { sortOffersAction } from '../../store/actionCreators';
 
 
 function SortOffers():JSX.Element{
@@ -14,7 +14,7 @@ function SortOffers():JSX.Element{
   const dispatch = useDispatch();
 
   const onSort = (type:State['sortType'])=>{
-    dispatch(sortOffers(ActionType.SortOffers,type));
+    dispatch(sortOffersAction(type));
     setIsOpened(false);
   };
 
@@ -29,10 +29,10 @@ function SortOffers():JSX.Element{
       </span>
       <ul  className={`places__options places__options--custom ${isOpened ? 'places__options--opened' : ''}`}>
 
-        {sortTypes.map((type)=>(<SortOption sortType={type} onClick={()=>{
-          onSort(type);
-        }} key={type}
-                                />))}
+
+  {sortTypes.map((type) => (
+    <SortOption sortType={type} onClick={() => onSort(type)} key={type}/>
+  ))}
 
       </ul>
     </form>

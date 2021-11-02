@@ -3,5 +3,5 @@ import { ApartmentOffer } from './offers-type';
 export type State = {
   city: string,
   offers: ApartmentOffer[]
-  sortType: string
+  sortType: 'Popular' | 'Price high to low' | 'Price low to high' | 'Rating',
 }

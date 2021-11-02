@@ -36,26 +36,26 @@ function Main({ allOffers }: MainProps): JSX.Element {
     setSelectedPoint(currentPoint);
   };
 
-  const sortedOffers = (currentOffers: ApartmentOffer[], currentSortType: string) => {
+  const sortedOffers = (currentOffers: ApartmentOffer[], currentSortType: State['sortType']) => {
     switch (currentSortType) {
       case 'Price low to high':{
-        const filteredOffers = currentOffers.sort((a,b)=>a.price-b.price);
+        const filteredOffers = currentOffers.slice().sort((a,b)=>a.price-b.price);
         return  filteredOffers;
       }
       case 'Price high to low': {
-        const filteredOffers=currentOffers.sort((a,b)=>b.price-a.price);
+        const filteredOffers=currentOffers.slice().sort((a,b)=>b.price-a.price);
         return  filteredOffers;
 
       }
       case 'Rating' : {
-        const filteredOffers=currentOffers.sort((a,b)=>b.rating-a.rating);
+        const filteredOffers=currentOffers.slice().sort((a,b)=>b.rating-a.rating);
         return  filteredOffers;
       }
       case 'Popular': {
-        return currentOffers;
+        return currentOffers.slice();
       }
       default :
-        return currentOffers;
+        return currentOffers.slice();
     }
   };
 

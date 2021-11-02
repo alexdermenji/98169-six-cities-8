@@ -1,6 +1,7 @@
-import { SortOffersAction } from './action';
-import { ActionType } from './action';
-export const sortOffers =(type:ActionType.SortOffers, payload:string):SortOffersAction => ({
-  type: type,
-  payload: payload,
+import { State } from '../types/redux-types';
+import { SortOffersAction, ActionType } from './action';
+
+export const sortOffersAction =(sortType:State['sortType']):SortOffersAction => ({
+  type: ActionType.SortOffers,
+  payload: sortType,
 });
