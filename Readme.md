@@ -20,7 +20,7 @@ _`.editorconfig`, `.gitattributes`, `.gitignore`._
 
 Откройте репозиторий и нажмите кнопку «Fork» в правом верхнем углу. Репозиторий из Академии будет скопирован в ваш аккаунт.
 
-<img width="769" alt="Press 'Fork'" src="https://cloud.githubusercontent.com/assets/259739/20264045/a1ddbf40-aa7a-11e6-9a1a-724a1c0123c8.png">
+<img width="769" alt="Press 'Fork'" src="https://user-images.githubusercontent.com/76278384/144286775-22bce623-47ef-440b-b3ca-271d6b0ebfa0.png">
 
 Получится вот так:
 
