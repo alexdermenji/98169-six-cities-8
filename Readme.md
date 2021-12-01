@@ -24,7 +24,7 @@ _`.editorconfig`, `.gitattributes`, `.gitignore`._
 
 Получится вот так:
 
-<img width="769" alt="Forked" src="https://yadi.sk/i/4l04PPWanGyUbA">
+<img width="769" alt="Forked" src="https://yadi.sk/i/H7BCk8FAUN4a4Q">
 
 #### 3. Клонируйте репозиторий на свой компьютер
 
